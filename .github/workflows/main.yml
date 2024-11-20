@@ -19,12 +19,6 @@
 
          - name: Install dependencies
            run: npm ci
-
-         - name: Print debuggint information
-           run: |
-            echo "Node Version: $(node --version)"
-            echo "NPM Version: $(npm --version)"
-            echo "Working Directory: $(pwd)"
     test:
       needs: build
       runs-on: ubuntu-latest
