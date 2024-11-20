@@ -25,7 +25,6 @@
             echo "Node Version: $(node --version)"
             echo "NPM Version: $(npm --version)"
             echo "Working Directory: $(pwd)"
-
     test:
       needs: build
       runs-on: ubuntu-latest
