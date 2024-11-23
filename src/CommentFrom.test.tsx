@@ -13,8 +13,8 @@ describe('CommentForm', () => {
 
     it('handles input changes', () => {
         const { getByLabelText } = render(<CommentForm />);
-        const titleInput = getByLabelText(/Title:/i);
-        const bodyInput = getByLabelText(/Body:/i);
+        const titleInput = getByLabelText(/Title:/i)as HTMLInputElement;
+        const bodyInput = getByLabelText(/Body:/i)as HTMLInputElement;
         fireEvent.change(titleInput, { target: { value: 'Test Title' } });
         fireEvent.change(bodyInput, { target: { value: 'Test Body' } });
         expect(titleInput.value).toBe('Test Title');
@@ -29,7 +29,7 @@ describe('CommentForm', () => {
         fireEvent.change(bodyInput, { target: { value: 'Test Body' } });
         fireEvent.click(getByText(/Submit/i));
 
-        const comments = JSON.parse(localStorage.getItem('comments'));
+        const comments = JSON.parse(localStorage.getItem('comments')|| "")as object[];
         expect(comments).toHaveLength(1);
         expect(comments[0]).toEqual({ title: 'Test Title', body: 'Test Body' });
     });
