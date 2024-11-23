@@ -8,11 +8,11 @@ const CommentForm = () => {
     const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         const comment = { title, body };
-        const comments = JSON.parse(localStorage.getItem('comments')) || [];
+        const comments = JSON.parse(localStorage.getItem('comments') || "")as object[];
         comments.push(comment);
         localStorage.setItem('comments', JSON.stringify(comments));
         setTitle('');
-        setBody('');
+        setBody('')
     };
 
     return (
