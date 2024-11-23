@@ -5,7 +5,7 @@ const CommentForm = () => {
     const [title, setTitle] = useState('');
     const [body, setBody] = useState('');
 
-    const handleSubmit = (e) => {
+    const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         const comment = { title, body };
         const comments = JSON.parse(localStorage.getItem('comments')) || [];
